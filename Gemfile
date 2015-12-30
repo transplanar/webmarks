@@ -20,6 +20,13 @@ source 'https://rubygems.org'
    gem 'sqlite3'
  end
 
+ group :development, :test do
+  #  REVIEW why specify this specific version?
+   gem 'rspec-rails', '~> 3.0'
+ end
+
+
+
  # Use SCSS for stylesheets
  gem 'sass-rails', '~> 5.0'
  # Use Uglifier as compressor for JavaScript assets
@@ -35,3 +42,5 @@ source 'https://rubygems.org'
 # Gems added by GPC
 
 gem 'devise'
+
+# TODO add Bootstrap (after devise install)

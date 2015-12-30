@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # get 'home/about'
 
   devise_for :users
+  resources :users
 
   root to: "home#index"
 end
