@@ -11,6 +11,7 @@ source 'https://rubygems.org'
  # REVIEW (future reference) purpose/usage for gemfile groups?
  group :production do
    gem 'pg'
+   gem 'rails_12factor'
  end
 
  group :development do
