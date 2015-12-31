@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
   # TODO add confirmable later. Leave out for now for testing
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
+  has_many :topics
 end
