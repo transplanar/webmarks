@@ -45,3 +45,4 @@ source 'https://rubygems.org'
 gem 'devise'
 
 # TODO add Bootstrap (after devise install)
+gem 'bootstrap-sass'
