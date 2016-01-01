@@ -1,3 +1,7 @@
-// Place all the styles related to the Bookmarks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#bookmark-index-heading{
+  // position:fixed;
+  text-align: center;
+  font-weight: bolder;
+  // REVIEW why isn't the margin working?
+  margin-top: 20px;
+}

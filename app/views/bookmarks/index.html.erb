@@ -1,9 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Bookmarks</h1>
+<!-- REVIEW ambiguous directions - show all bookmarks for all users, or just ones you own? -->
+<h2 id="bookmark-index-heading">Your Bookmarks</h2>
+
+<% @topics.each do |topic|%>
+  <div> #<%= topic.title %> </div>
+
+  <!-- FIXME Make this display right -->
+  <div class="col-md-6" style="display:inline-block;">
+  <% topic.bookmarks.each do |bookmark| %>
+   <%= bookmark.url %> <br> <strong>LIKE</strong>
+  <% end  %>
+  </div>
+<% end %>
+
 
 <!-- TODO load image from url? Resize/crop that image? -->
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Url</th>
@@ -15,8 +28,8 @@
   <tbody>
     <% @bookmarks.each do |bookmark| %>
       <tr>
-        <td><%= bookmark.url %></td>
-        <td><%= bookmark.topic %></td>
+        <td><%= link_to bookmark.url, bookmark.url %></td>
+        <td><%= bookmark.topic.title %></td>
         <td><%= link_to 'Show', bookmark %></td>
         <td><%= link_to 'Edit', edit_bookmark_path(bookmark) %></td>
         <td><%= link_to 'Destroy', bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
