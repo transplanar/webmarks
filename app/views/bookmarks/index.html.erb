@@ -3,13 +3,17 @@
 <!-- REVIEW ambiguous directions - show all bookmarks for all users, or just ones you own? -->
 <h2 class="page-heading">Your Bookmarks</h2>
 
-  <% @topics.each do |topic|%>
+
+
+<% @topics.each do |topic|%>
+  <div class="topic-row">
     <div class="topic_tag"> <%= link_to "\##{topic.title}", topic_path(topic) %> </div>
 
     <div class="bookmark-item">
       <%= render partial: 'bookmark', locals: {topic: topic} %>
-    <% end %>
-</div>
+    </div>
+  </div>
+<% end %>
 
 <!-- TODO add  bookmark buttons for each topic -->
 <!-- NOTE move this button somewhere better? -->
