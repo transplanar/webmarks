@@ -1,6 +1,5 @@
 <!-- REVIEW how to pull image from url? how to generate an image? -->
   <!-- TODO additional styling, resizing -->
-  <!-- <div class="col-md-4 bookmark-item"> -->
   <% topic.bookmarks.each do |bookmark| %>
     <div class="image-wrapper">
       <%= link_to image_tag("http://driph.com/words/wp-content/uploads/2008/04/e.gif", size: "120x120"), bookmark.url  %>
