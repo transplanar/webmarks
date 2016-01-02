@@ -6,7 +6,7 @@
 #   rock_and_roll:  Topic.create!(title: "rock and roll")
 # }
 
-topic_arr = [:sex, :drugs, :rock_and_roll, :comedy]
+topic_arr = [:space, :pancakes, :porridge, :comedy]
 
 
 

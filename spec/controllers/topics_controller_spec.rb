@@ -23,6 +23,7 @@ RSpec.describe TopicsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Topic. As you add validations to Topic, be sure to
   # adjust the attributes here as well.
+  # TODO implement randomdata, factorygirl gems to complete RSpecs
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
   }

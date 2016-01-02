@@ -1,14 +1,14 @@
-<p id="notice"><%= notice %></p>
+<!-- REVIEW redundant with flash notice? -->
+<!-- <p id="notice"><%# notice %></p> -->
 
-<p>
-  <strong>Title:</strong>
-  <%= @topic.title %>
-</p>
+<h2 class="page-heading">Bookmarks for '<%= @topic.title %>' </h2>
+<!-- TODO once user controller created, fix this -->
+<!-- TODO replace this with link to user profile -->
+<!-- <div> owner: <%# @topic.user.email %> -->
 
-<p>
-  <strong>User:</strong>
-  <%= @topic.user %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+<%= render partial: 'bookmarks/bookmark', locals: {topic: @topic} %>
+
+<!-- <%# link_to 'Edit', edit_topic_path(@topic) %> | -->
+<!-- <%# link_to 'Back', topics_path %> -->

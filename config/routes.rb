@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # TODO change to limit to only required routes
   resources :bookmarks
   resources :topics
-  
+
   # resources :topics do
     # resources :bookmarks, except: [:index]
   # end

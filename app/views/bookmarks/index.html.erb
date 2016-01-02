@@ -1,23 +1,18 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%# notice %></p> -->
 
 <!-- REVIEW ambiguous directions - show all bookmarks for all users, or just ones you own? -->
-<h2 id="bookmark-index-heading">Your Bookmarks</h2>
+<h2 class="page-heading">Your Bookmarks</h2>
 
-<% @topics.each do |topic|%>
-  <div> #<%= topic.title %> </div>
+  <% @topics.each do |topic|%>
+    <div class="topic_tag"> <%= link_to "\##{topic.title}", topic_path(topic) %> </div>
 
-  <!-- FIXME Make this display right -->
-  <div class="col-md-4" style="display:inline;">
-  <% topic.bookmarks.each do |bookmark| %>
-   <!-- <%# bookmark.url %> <br> <strong>LIKE</strong> -->
-   <%# bookmark.url %>
-   <%# image_tag(bookmark.url) %>
-   <!-- TODO load image from url? Resize/crop that image? -->
-   <%= link_to image_tag("http://driph.com/words/wp-content/uploads/2008/04/e.gif", size: "120x120"), bookmark.url  %>
-  <% end  %>
-  </div>
-<% end %>
+    <div class="bookmark-item">
+      <%= render partial: 'bookmark', locals: {topic: topic} %>
+    <% end %>
+</div>
 
+<!-- TODO add  bookmark buttons for each topic -->
+<!-- NOTE move this button somewhere better? -->
 <div id="new_bookmark_button">
   <%= link_to 'New Bookmark', new_bookmark_path, class: "btn btn-success" %>
 </div>
