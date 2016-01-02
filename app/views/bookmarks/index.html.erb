@@ -5,8 +5,11 @@
 
 <% @topics.each do |topic|%>
   <div class="topic-row">
-    <div class="topic_tag"> <%= link_to "\##{topic.title}", topic_path(topic) %> </div>
-
+    <div class="topic_tag">
+      <!-- REVIEW why is the first delete button in the wrong position? -->
+      <%= link_to "\##{topic.title}", topic_path(topic) %>
+      <%= link_to "delete", [topic], method: :delete, class: "pull-right btn btn-danger"%>
+    </div>
     <div class="bookmark-item">
       <%= render partial: 'bookmark', locals: {topic: topic} %>
     </div>
@@ -15,6 +18,7 @@
 
 <!-- TODO add  bookmark buttons for each topic -->
 <!-- NOTE move this button somewhere better? -->
-<div id="new_bookmark_button">
+<div id="new_item_button_wrapper">
   <%= link_to 'New Bookmark', new_bookmark_path, class: "btn btn-success" %>
+  <%= link_to 'New Topic', new_topic_path, class: "btn btn-info" %>
 </div>

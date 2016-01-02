@@ -23,7 +23,8 @@ class TopicsController < ApplicationController
     set_log(@topic)
 
     if @topic.save
-      redirect_to @topic, notice: "Topic #{@log} was successfully created."
+      flash[:notice] = "Topic \##{@log} was successfully created."
+      redirect_to bookmarks_path
     else
       render :new
     end
@@ -33,7 +34,8 @@ class TopicsController < ApplicationController
     set_log(@topic)
 
     if @topic.update(topic_params)
-      redirect_to @topic, notice: "Topic #{@log} was successfully updated."
+      redirect_to @topic
+      flash[:notice] = "Topic \##{@log} was successfully updated."
     else
       render :edit
     end
@@ -43,7 +45,8 @@ class TopicsController < ApplicationController
     set_log(@topic)
 
     @topic.destroy
-    redirect_to topics_url, notice: "Topic #{@log} was successfully destroyed."
+    redirect_to bookmarks_url
+    flash[:notice] = "Topic \##{@log} was successfully destroyed."
   end
 
   private
