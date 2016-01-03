@@ -1,4 +1,6 @@
-<%= form_for(@bookmark) do |f| %>
+<!-- <%# form_for(@bookmark) do |f| %> -->
+<!-- <%# form_for [topic, bookmark] do |f| %> -->
+<%= form_for [@topic, @bookmark] do |f| %>
   <% if @bookmark.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
@@ -17,10 +19,10 @@
   </div>
   <!-- TODO add dropdown? -->
   <!-- TODO option to create new topic? -->
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :topic_id %><br>
     <%= f.text_field :topic_id %>
-  </div>
+  </div> -->
   <div class="actions">
     <%= f.submit %>
   </div>

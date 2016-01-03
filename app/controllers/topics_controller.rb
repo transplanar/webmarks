@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:show, :edit, :update, :destroy]
+  # before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   def index
     @topics = Topic.all
@@ -50,9 +50,10 @@ class TopicsController < ApplicationController
   end
 
   private
-    def set_topic
-      @topic = Topic.find(params[:id])
-    end
+    # def set_topic
+    #   # @topic = Topic.find(params[:id])
+    #   @topic = Topic.find(params[:topic_id])
+    # end
 
     def topic_params
       params.require(:topic).permit(:title, :user_id)
