@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+  # TODO fix this, redundant
   before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
 
   # def index
@@ -19,32 +20,52 @@ class BookmarksController < ApplicationController
   end
 
   def edit
+    @bookmark = Bookmark.find(params[:id])
+    # REVIEW needed? this wasn't needed in Bloccit
+    @topic = Topic.find(params[:topic_id])
   end
 
   def create
     # @topic = Topic.find[params[:id]]
     @topic = Topic.find(params[:topic_id])
     @bookmark = @topic.bookmarks.new(bookmark_params)
+    set_log(@bookmark)
+
 
     if @bookmark.save
       # redirect_to @bookmark, notice: 'Bookmark was successfully created.'
-      redirect_to topic_url(@topic), notice: 'Bookmark was successfully created.'
+      flash[:notice] = "Bookmark '#{@log}' created."
+      redirect_to topic_url(@topic)
+
     else
       render :new
     end
   end
 
   def update
-    if @bookmark.update(bookmark_params)
-      redirect_to @bookmark, notice: 'Bookmark was successfully updated.'
+    # TODO fix this. See bloccit
+    # @topic = Topic.find(params[:topic_id])
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.assign_attributes(bookmark_params)
+    set_log(@bookmark)
+
+    # if @bookmark.update(bookmark_params)
+    if @bookmark.save
+      # TODO fix log message
+      flash[:notice] = "Bookmark '#{@log}' updated."
+      redirect_to @bookmark.topic
     else
       render :edit
     end
   end
 
   def destroy
+    set_log(@bookmark)
+
     @bookmark.destroy
-    redirect_to bookmarks_url, notice: 'Bookmark was successfully destroyed.'
+    # TODO fix log message
+    flash[:notice] = "Bookmark '#{@log}' destroyed."
+    redirect_to root_path
   end
 
   private
@@ -55,5 +76,10 @@ class BookmarksController < ApplicationController
     def bookmark_params
       # TODO add rules to ensure valid url
       params.require(:bookmark).permit(:url, :topic_id)
+    end
+
+# REVIEW better place for this to make it more DRY?
+    def set_log(item)
+      @log = item.url;
     end
 end
