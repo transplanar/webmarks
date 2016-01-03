@@ -24,6 +24,9 @@ source 'https://rubygems.org'
  group :development, :test do
   #  REVIEW why specify this specific version?
    gem 'rspec-rails', '~> 3.0'
+   gem 'factory_girl_rails', '~> 4.0'
+   gem 'faker'
+
  end
 
 
@@ -43,6 +46,6 @@ source 'https://rubygems.org'
 # Gems added by GPC
 
 gem 'devise'
-
-# TODO add Bootstrap (after devise install)
 gem 'bootstrap-sass'
+
+# TODO add figaro and emailer for user confirmation

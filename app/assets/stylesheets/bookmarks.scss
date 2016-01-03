@@ -1,7 +1,18 @@
-#bookmark-index-heading{
-  // position:fixed;
-  text-align: center;
-  font-weight: bolder;
-  // REVIEW why isn't the margin working?
+#new_item_button_wrapper{
   margin-top: 20px;
+}
+
+.topic_tag{
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.caption{
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.image-wrapper{
+  display: inline-block;
 }
