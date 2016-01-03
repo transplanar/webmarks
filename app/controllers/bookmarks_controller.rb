@@ -12,13 +12,16 @@ class BookmarksController < ApplicationController
 
   def new
     @bookmark = Bookmark.new
+    @topics = Topic.all
   end
 
   def edit
   end
 
   def create
-    @bookmark = Bookmark.new(bookmark_params)
+    # @topic = Topic.find[params[:id]]
+    @topic = Topic.find(params[:topic_id])
+    @bookmark = @topic.bookmarks.new(bookmark_params)
 
     if @bookmark.save
       redirect_to @bookmark, notice: 'Bookmark was successfully created.'
