@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # get 'incoming/create'
+
   # TODO change to limit to only required routes
   # resources :bookmarks
   resources :topics do
@@ -13,6 +15,8 @@ Rails.application.routes.draw do
   resources :users
 
   get 'home' => 'home#index'
+
+  post :incoming, to: 'incoming#create'
 
   root to: "home#index"
 end

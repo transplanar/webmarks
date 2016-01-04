@@ -1,3 +1,4 @@
+# REVIEW (A) make sure heroku is working properly
 class BookmarksController < ApplicationController
   # TODO fix this, redundant
   before_action :set_bookmark, only: [:show, :edit, :update, :destroy]

@@ -47,5 +47,6 @@ source 'https://rubygems.org'
 
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'figaro', '1.0'
 
 # TODO add figaro and emailer for user confirmation
