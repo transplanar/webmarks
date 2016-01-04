@@ -14,9 +14,9 @@ class TopicsController < ApplicationController
   end
 
 # REVIEW to make more dry, could you just have it call show? (similar to pundit?)
-  def edit
-    @topic = Topic.find[params[:id]]
-  end
+  # def edit
+  #   @topic = Topic.find[params[:id]]
+  # end
 
   def create
     @topic = Topic.new(topic_params)
@@ -30,11 +30,12 @@ class TopicsController < ApplicationController
     end
   end
 
+  # TODO update redirects
   def update
     set_log(@topic)
 
     if @topic.update(topic_params)
-      redirect_to @topic
+      redirect_to root_path
       flash[:notice] = "Topic \##{@log} was successfully updated."
     else
       render :edit

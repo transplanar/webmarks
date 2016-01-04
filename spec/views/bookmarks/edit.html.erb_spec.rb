@@ -1,3 +1,4 @@
+# REVIEW make sure view specs work? Needed?
 require 'rails_helper'
 
 RSpec.describe "bookmarks/edit", type: :view do
@@ -11,7 +12,8 @@ RSpec.describe "bookmarks/edit", type: :view do
   it "renders the edit bookmark form" do
     render
 
-    assert_select "form[action=?][method=?]", bookmark_path(@bookmark), "post" do
+    # assert_select "form[action=?][method=?]", bookmark_path(@bookmark), "post" do
+    assert_select "form[action=?][method=?]", topic_bookmark_path(@bookmark.topic, @bookmark), "post" do
 
       assert_select "input#bookmark_url[name=?]", "bookmark[url]"
 

@@ -1,6 +1,10 @@
-FactoryGirl.define do
-  factory :bookmark do
-      url Faker::Internet.url
-      topic
-  end
-end
+# # require Faker
+# require 'faker'
+#
+# FactoryGirl.define do
+#   factory :bookmark do
+#       url Faker::Internet.url
+#       topic
+#   end
+# end
+# # 

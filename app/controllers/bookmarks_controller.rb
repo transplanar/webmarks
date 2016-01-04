@@ -26,17 +26,16 @@ class BookmarksController < ApplicationController
   end
 
   def create
+    # TODO validate parameters
     # @topic = Topic.find[params[:id]]
     @topic = Topic.find(params[:topic_id])
     @bookmark = @topic.bookmarks.new(bookmark_params)
     set_log(@bookmark)
 
-
     if @bookmark.save
       # redirect_to @bookmark, notice: 'Bookmark was successfully created.'
       flash[:notice] = "Bookmark '#{@log}' created."
       redirect_to topic_url(@topic)
-
     else
       render :new
     end

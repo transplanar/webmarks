@@ -25,7 +25,7 @@ source 'https://rubygems.org'
   #  REVIEW why specify this specific version?
    gem 'rspec-rails', '~> 3.0'
    gem 'factory_girl_rails', '~> 4.0'
-   gem 'faker'
+  #  gem 'faker'
 
  end
 
