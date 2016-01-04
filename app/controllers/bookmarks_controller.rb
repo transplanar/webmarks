@@ -4,7 +4,6 @@ class BookmarksController < ApplicationController
 
   # def index
   #   @bookmarks = Bookmark.all
-  #   # REVIEW better way to do this?
   #   @topics = Topic.all
   # end
 

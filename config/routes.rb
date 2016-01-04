@@ -5,13 +5,6 @@ Rails.application.routes.draw do
     resources :bookmarks
   end
 
-  # resources :topics do
-    # resources :bookmarks, except: [:index]
-  # end
-
-  # REVIEW is this messing things up? should be nested?
-  # get 'bookmarks' => 'bookmarks#index'
-
   # REVIEW advantage/convention for each way of doing this?
   # get 'home/about'
   get 'about' => 'home#about'

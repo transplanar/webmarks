@@ -14,6 +14,7 @@ class TopicsController < ApplicationController
   end
 
 # REVIEW to make more dry, could you just have it call show? (similar to pundit?)
+  # TODO implement topic edit
   # def edit
   #   @topic = Topic.find[params[:id]]
   # end

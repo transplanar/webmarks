@@ -1,5 +1,3 @@
-# REVIEW make sure git auto-login set up properly
-
 require File.expand_path('../boot', __FILE__)
 
 require "rails"

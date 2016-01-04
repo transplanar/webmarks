@@ -1,6 +1,6 @@
 require "rails_helper"
 
-# REVIEW how do I get these routing specs to work with nested routes?
+# REVIEW (A) how do I get these routing specs to work with nested routes?
 RSpec.describe BookmarksController, type: :routing do
   describe "routing" do
 

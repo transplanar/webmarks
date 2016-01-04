@@ -1,4 +1,4 @@
-<!-- REVIEW how to pull image from url? how to generate an image? -->
+<!-- REVIEW (B) how to pull image from url? how to generate an image? -->
 <!-- TODO additional styling, resizing -->
 
 <% topic.bookmarks.each do |bookmark| %>
@@ -15,7 +15,7 @@
 
   <%# link_to 'Delete', wiki_path(@wiki), method: :delete, class: "btn btn-danger " %>
 
-  <!-- REVIEW why is the hover on edit/delete buttons inconsistent? -->
+  <!-- REVIEW (B) why is the hover on edit/delete buttons inconsistent? -->
   <!-- TODO style to make this center underneath LIKE link -->
   <!-- TODO smaller icons? -->
   <%= link_to topic_bookmark_path(topic, bookmark), method: :delete, class: "btn btn-danger " do %>

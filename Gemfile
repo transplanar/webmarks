@@ -15,7 +15,7 @@ source 'https://rubygems.org'
  end
 
  group :development do
-  #  REVIEW will this cause problems with heroku again?
+  #  REVIEW (A) will this cause problems with heroku again?
   #  bundle install output shows this is getting installed
   #  (ignored when deployed to heroku?)
    gem 'sqlite3'
