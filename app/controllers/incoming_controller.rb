@@ -12,8 +12,8 @@ class IncomingController < ApplicationController
     # TODO if topic is nil, create a new topic
 
 
-    # bookmark = topic.bookmarks.new(url: params["body-plain"])
-    bookmark = topic.bookmarks.new(url: params["stripped-text"])
+    bookmark = topic.bookmarks.new(url: params["body-plain"])
+    # bookmark = topic.bookmarks.new(url: params["stripped-text"])
 
     # REVIEW (B) how does this work? are headers responses to a query?
     head 200
