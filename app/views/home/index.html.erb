@@ -3,20 +3,7 @@
 <!-- REVIEW ambiguous directions - show all bookmarks for all users, or just ones you own? -->
 <h2 class="page-heading">Your Bookmarks</h2>
 
-<% @topics.each do |topic|%>
-  <div class="topic-row">
-    <div class="topic_tag">
-      <!-- REVIEW (B) why is the first delete button in the wrong position? -->
-      <%= link_to "\##{topic.title}", topic_path(topic) %>
-      <!-- <%# link_to 'New Bookmark', new_bookmark_path(topic), class: "pull-right btn btn-success" %> -->
-      <%= link_to 'New Bookmark', new_topic_bookmark_path(topic), class: "pull-right btn btn-success" %>
-      <%= link_to "delete", [topic], method: :delete, class: "pull-right btn btn-danger"%>
-    </div>
-    <div class="bookmark-item">
-      <%= render partial: 'bookmarks/bookmark', locals: {topic: topic} %>
-    </div>
-  </div>
-<% end %>
+<%= render 'topics' %>
 
 <!-- TODO add  bookmark buttons for each topic -->
 <!-- NOTE move this button somewhere better? -->
