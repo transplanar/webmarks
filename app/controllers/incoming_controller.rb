@@ -1,6 +1,7 @@
 class IncomingController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
+  # TODO need to verify whether topic is new or not
   def create
     # TODO implement user
     # user = User.new(params[:sender])
