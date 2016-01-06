@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # TODO change to limit to only required routes
   # resources :bookmarks
   resources :topics do
-    resources :bookmarks
+    resources :bookmarks, except:[:index] do
+      resources :likes, only: [:create, :destroy]
+    end
   end
 
   # REVIEW advantage/convention for each way of doing this?
