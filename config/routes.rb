@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   # resources :bookmarks
   resources :topics do
     resources :bookmarks, except:[:index] do
-      resources :likes, only: [:create, :destroy]
+      # REVIEW (A) handle this like favorites in Bloccit, or need a create.html.erb?
+      # resources :likes, only: [:create, :destroy]
+      post '/like' => 'likes#create'
+      delete '/like' => 'likes#destroy'
     end
   end
 

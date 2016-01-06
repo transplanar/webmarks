@@ -29,6 +29,8 @@ class LikesController < ApplicationController
    # Get the bookmark from the params
    # Find the current user's like with the ID in the params
    set_log(@bookmark)
+  #  FIXME this raises errors when not logged in.
+   like = @bookmark.likes.where(user_id: current_user.id).first
 
    if like.destroy
      # Flash success and redirect to @bookmark
@@ -48,7 +50,4 @@ class LikesController < ApplicationController
  def set_bookmark
    @bookmark = Bookmark.find(params[:bookmark_id])
  end
-
-
-
 end
