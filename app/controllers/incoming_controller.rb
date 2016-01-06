@@ -5,7 +5,8 @@ class IncomingController < ApplicationController
     # TODO implement user
     # user = User.new(params[:sender])
 
-    topic = Topic.new(title: params[:subject])
+    # topic = Topic.new(title: params[:subject])
+    topic = Topic.create!(title: params[:subject])
 
     #TODO check if user is nil. If yes, make new user
 
