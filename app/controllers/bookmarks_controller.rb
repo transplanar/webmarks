@@ -1,15 +1,15 @@
 # REVIEW (A) make sure heroku is working properly
 class BookmarksController < ApplicationController
   # TODO fix this, redundant
-  before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
+  before_action :set_bookmark, only: [:edit, :update, :destroy]
 
   # def index
   #   @bookmarks = Bookmark.all
   #   @topics = Topic.all
   # end
 
-  def show
-  end
+  # def show
+  # end
 
   def new
     @topic = Topic.find(params[:topic_id])
@@ -20,9 +20,14 @@ class BookmarksController < ApplicationController
   end
 
   def edit
-    @bookmark = Bookmark.find(params[:id])
-    # REVIEW needed? this wasn't needed in Bloccit
-    @topic = Topic.find(params[:topic_id])
+    authorize @bookmark
+
+    # if
+    #   # REVIEW needed? this wasn't needed in Bloccit
+    #   @topic = Topic.find(params[:topic_id])
+    # end
+
+    # @bookmark = Bookmark.find(params[:id])
   end
 
   def create
@@ -42,9 +47,10 @@ class BookmarksController < ApplicationController
   end
 
   def update
+    authorize @bookmark
     # TODO fix this. See bloccit
     # @topic = Topic.find(params[:topic_id])
-    @bookmark = Bookmark.find(params[:id])
+    # @bookmark = Bookmark.find(params[:id])
     @bookmark.assign_attributes(bookmark_params)
     set_log(@bookmark)
 
@@ -59,6 +65,7 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
+    authorize @bookmark
     set_log(@bookmark)
 
     @bookmark.destroy

@@ -1,0 +1,24 @@
+<% @topics.each do |topic|%>
+  <div class="topic-row">
+    <div class="topic_tag">
+      <!-- REVIEW (B) why is the first delete button in the wrong position? -->
+      <%= link_to "\##{topic.title}", topic_path(topic) %>
+      <!-- <%# link_to 'New Bookmark', new_bookmark_path(topic), class: "pull-right btn btn-success" %> -->
+      <%# link_to 'New Bookmark', new_topic_bookmark_path(topic), class: "pull-right btn btn-success" %>
+      <%# link_to 'New Bookmark', new_topic_bookmark_path(topic), class: "pull-right btn btn-success" %>
+
+      <!-- REVIEW why are these reversed when rendered? -->
+      <%= link_to topic_path(topic), method: :delete, title: 'Delete Topic', class: "pull-right btn btn-danger", data: {confirm: "Are you sure you want to delete topic '#{topic.title}'?"} do %>
+        <i class="glyphicon glyphicon-trash"> </i>
+      <% end %>
+
+      <%= link_to edit_topic_path(topic), title: 'Edit Topic', class: 'btn btn-primary pull-right' do %>
+        <i class="glyphicon glyphicon-edit"></i>
+      <% end %>
+    </div>
+
+    <div class="bookmark-item">
+      <%= render partial: 'bookmarks/bookmark', locals: {topic: topic} %>
+    </div>
+  </div>
+<% end %>

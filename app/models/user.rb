@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :topics
+
+  # REVIEW is this correct?
+  has_many :bookmarks, through: :topics
 end

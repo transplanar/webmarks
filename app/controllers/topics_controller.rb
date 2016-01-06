@@ -6,7 +6,9 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
+    # REVIEW needed?
+    authorize @topic
+    # @topic = Topic.find(params[:id])
   end
 
   def new
@@ -15,9 +17,10 @@ class TopicsController < ApplicationController
 
 # REVIEW to make more dry, could you just have it call show? (similar to pundit?)
   # TODO implement topic edit
-  # def edit
-  #   @topic = Topic.find[params[:id]]
-  # end
+  def edit
+    authorize @topic
+    # @topic = Topic.find(params[:id])
+  end
 
   def create
     @topic = Topic.new(topic_params)
@@ -33,6 +36,7 @@ class TopicsController < ApplicationController
 
   # TODO update redirects
   def update
+    authorize @topic
     set_log(@topic)
 
     if @topic.update(topic_params)
@@ -44,6 +48,8 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    authorize @topic
+    
     set_log(@topic)
 
     @topic.destroy
