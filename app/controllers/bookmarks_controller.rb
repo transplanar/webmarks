@@ -85,6 +85,7 @@ class BookmarksController < ApplicationController
     end
 
 # REVIEW better place for this to make it more DRY?
+# TODO refactor to use "bookmark.url" instead
     def set_log(item)
       @log = item.url;
     end
