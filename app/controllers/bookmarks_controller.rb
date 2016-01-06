@@ -85,7 +85,7 @@ class BookmarksController < ApplicationController
     end
 
 # REVIEW better place for this to make it more DRY?
-    def set_log(item)
-      @log = item.url;
-    end
+    # def set_log(item)
+    #   @log = item.url;
+    # end
 end
