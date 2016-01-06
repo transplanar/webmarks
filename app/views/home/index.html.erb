@@ -1,7 +1,11 @@
 <!-- <p id="notice"><%# notice %></p> -->
 
 <!-- REVIEW ambiguous directions - show all bookmarks for all users, or just ones you own? -->
-<h2 class="page-heading">Your Bookmarks</h2>
+<% if current_user.present? %>
+  <h2 class="page-heading">Your Bookmarks</h2>
+<% else %>
+  <h2 class="page-heading">Some Cool Bookmarks</h2>
+<% end %>
 
 <%= render 'topics' %>
 
