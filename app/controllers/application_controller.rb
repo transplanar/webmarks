@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
     # REVIEW: what is this for?
     devise_parameter_sanitizer.for(:sign_up) << :name
   end
+
+  def set_log(item)
+    @log = item.url;
+  end
 end
