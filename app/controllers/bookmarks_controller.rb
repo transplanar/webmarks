@@ -17,7 +17,9 @@ class BookmarksController < ApplicationController
 
     if @bookmark.save
       flash[:notice] = "Bookmark '#{@bookmark.url}' created."
-      redirect_to topic_url(@topic)
+      redirect_to root_path
+      # TODO redirect back two pages http://stackoverflow.com/questions/30655087/how-to-redirect-toback-two-times
+      # redirect_to :back
     else
       render :new
     end
@@ -45,6 +47,11 @@ class BookmarksController < ApplicationController
   end
 
   private
+
+  def bookmark_params
+    params.require(:bookmark).permit(:url, :topic_id)
+  end
+
   def set_bookmark
     @bookmark = Bookmark.find(params[:id])
   end
