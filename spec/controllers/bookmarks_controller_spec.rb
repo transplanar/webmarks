@@ -23,6 +23,7 @@ RSpec.describe BookmarksController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Bookmark. As you add validations to Bookmark, be sure to
   # adjust the attributes here as well.
+  let{:my_user} { User.create!(email: "test@example.com", password: "password", confirmed_at: Time.now)}
   let(:my_topic){ Topic.create!(title: "TestTopic") }
 
   let(:valid_attributes) {
@@ -54,15 +55,14 @@ RSpec.describe BookmarksController, type: :controller do
   #   end
   # end
 
-  describe "GET #show" do
-    it "assigns the requested bookmark as @bookmark" do
-      bookmark = Bookmark.create! valid_attributes
-      # get :show, {topic_id: my_topic.to_param, :id => bookmark.to_param}, valid_session
-      # REVIEW when is to_param needed?
-      get :show, {topic_id: my_topic, id: bookmark}, valid_session
-      expect(assigns(:bookmark)).to eq(bookmark)
-    end
-  end
+  # describe "GET #show" do
+  #   it "assigns the requested bookmark as @bookmark" do
+  #     bookmark = Bookmark.create! valid_attributes
+  #     # get :show, {topic_id: my_topic.to_param, :id => bookmark.to_param}, valid_session
+  #     get :show, {topic_id: my_topic, id: bookmark}, valid_session
+  #     expect(assigns(:bookmark)).to eq(bookmark)
+  #   end
+  # end
 
   describe "GET #new" do
     it "assigns a new bookmark as @bookmark" do

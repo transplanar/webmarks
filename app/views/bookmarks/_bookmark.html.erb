@@ -6,7 +6,8 @@
   <!-- TODO user Faker::Placeholdit https://github.com/stympy/faker#fakerplaceholdit-->
   <%= link_to image_tag("http://driph.com/words/wp-content/uploads/2008/04/e.gif", size: "120x120"), bookmark.url  %>
   <!-- TODO change this to link to "like" function -->
-  <span class="caption">LIKE</span>
+  <!-- <span class="caption">LIKE</span> -->
+  <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
 
   <!-- <%# link_to edit_topic_bookmark_path(topic, bookmark), class: 'btn btn-primary' do %> -->
   <%= link_to edit_topic_bookmark_path(topic, bookmark), title: "Edit Bookmark" do %>
@@ -15,7 +16,6 @@
 
   <%# link_to 'Delete', wiki_path(@wiki), method: :delete, class: "btn btn-danger " %>
 
-  <!-- REVIEW (B) why is the hover on edit/delete buttons inconsistent? -->
   <!-- TODO style to make this center underneath LIKE link -->
   <!-- TODO smaller icons? -->
   <%# link_to topic_bookmark_path(topic, bookmark), method: :delete, class: "btn btn-danger " do %>
