@@ -1,4 +1,3 @@
-# REVIEW (A) make sure heroku is working properly
 class BookmarksController < ApplicationController
   before_action :set_bookmark, only: [:edit, :update, :destroy]
 
