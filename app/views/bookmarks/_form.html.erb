@@ -1,7 +1,4 @@
-<!-- <%# form_for(@bookmark) do |f| %> -->
-<!-- <%# form_for [topic, bookmark] do |f| %> -->
-<!-- <%# form_for [@topic, @bookmark] do |f| %> -->
-<%= form_for [@bookmark.topic, @bookmark] do |f| %>
+<%= form_for [@topic, @bookmark] do |f| %>
   <% if @bookmark.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>

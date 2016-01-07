@@ -1,8 +1,8 @@
 class BookmarksController < ApplicationController
   before_action :set_bookmark, only: [:edit, :update, :destroy]
+  before_action :set_topic, only: [:new, :edit, :create]
 
   def new
-    @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.new
   end
 
@@ -12,14 +12,12 @@ class BookmarksController < ApplicationController
 
   def create
     # TODO validate Topic parameters
-    @topic = Topic.find(params[:topic_id])
     @bookmark = @topic.bookmarks.new(bookmark_params)
 
     if @bookmark.save
       flash[:notice] = "Bookmark '#{@bookmark.url}' created."
       redirect_to root_path
       # TODO redirect back two pages http://stackoverflow.com/questions/30655087/how-to-redirect-toback-two-times
-      # redirect_to :back
     else
       render :new
     end
@@ -27,12 +25,11 @@ class BookmarksController < ApplicationController
 
   def update
     authorize @bookmark
-    # TODO fix this. See bloccit
     @bookmark.assign_attributes(bookmark_params)
 
     if @bookmark.save
       flash[:notice] = "Bookmark '#{@bookmark.url}' updated."
-      redirect_to @bookmark.topic
+      redirect_to root_path
     else
       render :edit
     end
@@ -54,5 +51,9 @@ class BookmarksController < ApplicationController
 
   def set_bookmark
     @bookmark = Bookmark.find(params[:id])
+  end
+
+  def set_topic
+    @topic = Topic.find(params[:topic_id])
   end
 end
