@@ -4,12 +4,11 @@ Rails.application.routes.draw do
   # TODO change to limit to only required routes
   # resources :bookmarks
   resources :topics do
-    resources :bookmarks, except:[:index] do
-      # REVIEW (A) handle this like favorites in Bloccit, or need a create.html.erb?
-      # resources :likes, only: [:create, :destroy]
-      post '/like' => 'likes#create'
-      delete '/like' => 'likes#destroy'
-    end
+    resources :bookmarks, except:[:index]    
+  end
+
+  resources :bookmarks, only: [] do
+    resources :likes, only: [:create, :destroy]
   end
 
   # REVIEW advantage/convention for each way of doing this?

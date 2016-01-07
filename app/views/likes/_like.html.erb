@@ -1,19 +1,21 @@
 
 <!-- TODO style this to add titles, remove excess code -->
 <div>
-  <!-- TODO fix if logic -->
-  <%# if like = current_user.like(bookmark) %>
-  <% if false %>
-    <%# link_to [bookmark.topic, bookmark, like], class: 'btn btn-danger', method: :delete do %>
-    <%# link_to [bookmark.topic, bookmark, like], class: 'btn btn-danger', method: :delete do %>
-    <%= link_to topic_bookmark_like_path(bookmark.topic, bookmark), class: 'btn btn-danger', method: :delete do %>
-      <i class="glyphicon glyphicon-star-empty"> </i>
-    <% end %>
-  <% else %>
-    <%= link_to topic_bookmark_like_path(bookmark.topic, bookmark), class: 'btn btn-primary', method: :post do %>
-    <%# link_to [bookmark.topic, bookmark, Like.new], class: 'btn btn-primary', method: :post do %>
-    <!-- <%# link_to [bookmark.topic, bookmark, Like.new], class: 'btn btn-primary' do %> -->
-      <i class="glyphicon glyphicon-star"> </i>
+  <!-- TODO move to partial call -->
+  <% if current_user.present? %>
+    <% if like = current_user.liked(bookmark) %>
+    <!-- <%# if false %> -->
+      <%# link_to [bookmark.topic, bookmark, like], class: 'btn btn-danger', method: :delete do %>
+      <%# link_to [bookmark.topic, bookmark, like], class: 'btn btn-danger', method: :delete do %>
+      <%= link_to bookmark_like_path(bookmark, like), class: 'btn btn-danger', method: :delete do %>
+        <i class="glyphicon glyphicon-star-empty"> </i>
+      <% end %>
+    <% else %>
+      <%= link_to bookmark_likes_path(bookmark), class: 'btn btn-primary', method: :post do %>
+      <%# link_to [bookmark.topic, bookmark, Like.new], class: 'btn btn-primary', method: :post do %>
+      <!-- <%# link_to [bookmark.topic, bookmark, Like.new], class: 'btn btn-primary' do %> -->
+        <i class="glyphicon glyphicon-star"> </i>
+      <% end %>
     <% end %>
   <% end %>
 </div>

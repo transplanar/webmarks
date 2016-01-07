@@ -21,8 +21,11 @@ class LikesController < ApplicationController
      flash[:alert] = "Like failed for '#{@log}'."
 
     #  TODO figure out better redirect
-     render @bookmark.topic
+    #  render @bookmark.topic
    end
+
+  #  redirect_to @bookmark.topic
+   redirect_to :back
  end
 
  def destroy
@@ -36,13 +39,15 @@ class LikesController < ApplicationController
      # Flash success and redirect to @bookmark
      flash[:notice] = "Like removed for '#{@log}'."
     #  TODO update redirect
-     redirect_to root_path
+    #  redirect_to root_path
    else
      # Flash error and redirect to @bookmark
      flash[:alert] = "Unable to remove like for '#{@log}'. Please try again"
 
-     redirect_to root_path
+    #  redirect_to root_path
    end
+
+   redirect_to :back
  end
 
  private
