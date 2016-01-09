@@ -19,7 +19,6 @@ class BookmarksController < ApplicationController
       flash[:notice] = "Bookmark '#{@bookmark.url}' created."
       redirect_to root_path
       # TODO redirect back two pages http://stackoverflow.com/questions/30655087/how-to-redirect-toback-two-times
-      # redirect_to :back
     else
       render :new
     end
