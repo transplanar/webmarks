@@ -1,16 +1,17 @@
-<!-- <p id="notice"><%# notice %></p> -->
 
-<!-- REVIEW ambiguous directions - show all bookmarks for all users, or just ones you own? -->
+<!-- TODO Show your bookmarks first, show other user bookmarks below? -->
+<!-- ... exclude your bookmarks from this bottom list (so no double display) -->
 <% if current_user.present? %>
   <h2 class="page-heading">Your Bookmarks</h2>
 <% else %>
   <h2 class="page-heading">Some Cool Bookmarks</h2>
 <% end %>
 
-<%= render 'topics' %>
-
-<!-- TODO add  bookmark buttons for each topic -->
-<!-- NOTE move this button somewhere better? -->
+<!-- TODO align this to right, above list of bookmarks -->
+<!-- ... OR underneath signup/signin -->
 <div id="new_item_button_wrapper">
   <%= link_to 'New Topic', new_topic_path, class: "btn btn-info" %>
 </div>
+
+<%# render 'topics' %>
+<%= render 'topics/topics' %>
