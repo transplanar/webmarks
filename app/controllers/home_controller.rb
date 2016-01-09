@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
   def index
-    @topics = Topic.all
+    if current_user.present?
+      @topics = current_user.topics
+    else
+      @topics = Topic.all
+    end
   end
 
   def about
