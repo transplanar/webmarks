@@ -1,10 +1,11 @@
+<% if @topics.count == 0 %>
+  You don't have any bookmarks yet!
+<% end %>
+
 <% @topics.each do |topic|%>
   <div class="topic-row">
     <div class="topic_tag">
-      <%= link_to "\##{topic.title}", topic_path(topic) %>
-      <!-- <%# link_to 'New Bookmark', new_bookmark_path(topic), class: "pull-right btn btn-success" %> -->
-      <%# link_to 'New Bookmark', new_topic_bookmark_path(topic), class: "pull-right btn btn-success" %>
-      <%# link_to 'New Bookmark', new_topic_bookmark_path(topic), class: "pull-right btn btn-success" %>
+      <%= link_to "\##{topic.title}", topic_path(topic) %> by <%= link_to "#{topic.user.email}", user_path(topic.user) %>
 
       <!-- REVIEW why are these reversed when rendered? -->
       <%= link_to topic_path(topic), method: :delete, title: 'Delete Topic', class: "pull-right btn btn-danger", data: {confirm: "Are you sure you want to delete topic '#{topic.title}'?"} do %>
@@ -17,7 +18,8 @@
     </div>
 
     <div class="bookmark-item">
-      <%= render partial: 'bookmarks/bookmark', locals: {topic: topic} %>
+      <%# render partial: 'bookmarks/bookmark', locals: {topic: topic} %>
+      <%= render partial: 'bookmarks/bookmark', locals: {topic: topic, user: current_user} %>
     </div>
   </div>
 <% end %>
