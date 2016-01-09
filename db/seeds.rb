@@ -6,6 +6,7 @@ User.create!(email: 'member@example.com', password: 'password', confirmed_at: Ti
 # topic_arr = [:space, :pancakes, :porridge, :comedy]
 topic_arr = []
 
+# TODO add code to ensure faker creates unique stuff
 10.times do
   User.create!(email: Faker::Internet.email, password: 'password', confirmed_at: Time.now)
 end

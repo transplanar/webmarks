@@ -24,7 +24,7 @@ source 'https://rubygems.org'
   #  REVIEW why specify this specific version?
    gem 'rspec-rails', '~> 3.0'
    gem 'factory_girl_rails', '~> 4.0'
-   gem 'faker'
+  #  gem 'faker'
 
  end
 
@@ -48,5 +48,8 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'figaro', '1.0'
 gem 'pundit'
+gem 'faker'
+
+
 
 # TODO add figaro and emailer for user confirmation
