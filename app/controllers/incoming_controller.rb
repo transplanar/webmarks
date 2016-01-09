@@ -3,20 +3,20 @@ class IncomingController < ApplicationController
 
   # TODO need to verify whether topic is new or not
   def create
-    # TODO implement user
-    # user = User.new(params[:sender])
+    user = User.where(email: params[:sender])
 
-    # topic = Topic.new(title: params[:subject])
-    topic = Topic.create!(title: params[:subject])
+    # REVIEW what to do with user that has no login info?
+    if (user.nil?)
+      user = User.create!(email: params[:sender])
+    end
 
-    #TODO check if user is nil. If yes, make new user
+    topic = Topic.where(title: params[:subject])
 
-    # TODO if topic is nil, create a new topic
+    if (topic.nil?)
+      topic = Topic.create!(title: params[:subject], user: user)
+    end
 
-
-    # bookmark = topic.bookmarks.new(url: params["body-plain"])
     bookmark = topic.bookmarks.create!(url: params["body-plain"])
-    # bookmark = topic.bookmarks.new(url: params["stripped-text"])
 
     head 200
   end
