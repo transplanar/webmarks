@@ -16,7 +16,12 @@ class IncomingController < ApplicationController
       topic = Topic.create!(title: params[:subject], user: user)
     end
 
-    bookmark = topic.bookmarks.create!(url: params["body-plain"])
+    # bookmark = topic.bookmarks.create!(url: params["body-plain"])
+    # topic.bookmarks.create!(url: params["body-plain"])
+
+    Bookmark.create!(url: params["body-plain"], topic: topic) 
+
+    # topic.bookmarks.create!(url: params["body-plain"])
 
     head 200
   end
