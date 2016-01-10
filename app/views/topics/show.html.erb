@@ -1,14 +1,14 @@
 <!-- REVIEW redundant with flash notice? -->
 <!-- <p id="notice"><%# notice %></p> -->
 
-<h2 class="page-heading">Bookmarks for #<%= @topic.title %> </h2>
+<h2 class="header-centered">Bookmarks for #<%= @topic.title %> </h2>
 <!-- TODO once user controller created, fix this -->
 <!-- TODO replace this with link to user profile -->
 <!-- <div> owner: <%# @topic.user.email %> -->
 
 <div class="bookmark-item">
   <!-- <div style:"text-align: center;"> -->
-    <%= render partial: 'bookmarks/bookmark', locals: {topic: @topic} %>
+    <%= render partial: 'bookmarks/bookmarks', locals: {topic: @topic} %>
   <!-- </div> -->
 </div>
 

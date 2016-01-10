@@ -1,0 +1,15 @@
+<h2 class="header-centered">Profile for <%= @user.email %></h2>
+
+
+<%= render 'topics/topics' %>
+
+<!-- <h1> LIKED BOOKMARKS! </h1> -->
+<!-- TODO format like with other bookmarks? -->
+<h2 class="header-centered">Liked Bookmarks</h2>
+
+<% @user.likes.each do |like| %>
+  <!-- <div> -->
+    <%# render 'bookmarks/bookmark', locals: [topic: like.bookmark.topic] %>
+    <%= render partial: 'bookmarks/bookmark', locals: {bookmark: like.bookmark, topic: like.bookmark.topic} %>
+  <!-- </div> -->
+<% end %>
