@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  # get 'users/show'
+
   # get 'incoming/create'
 
   # TODO change to limit to only required routes
   # resources :bookmarks
   resources :topics do
-    resources :bookmarks, except:[:index]    
+    resources :bookmarks, except:[:index]
   end
 
   resources :bookmarks, only: [] do
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
   get 'about' => 'home#about'
 
   devise_for :users
-  resources :users
+  resources :users, only: [:show]
 
   get 'home' => 'home#index'
 
