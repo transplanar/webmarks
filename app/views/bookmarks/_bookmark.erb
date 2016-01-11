@@ -1,6 +1,23 @@
 <div class="image-wrapper">
   <!-- TODO replace with embedly-->
-  <%= link_to image_tag("http://driph.com/words/wp-content/uploads/2008/04/e.gif", size: "120x120"), bookmark.url, title: bookmark.url  %>
+  <%# link_to image_tag("http://cracked.com/favicon.ico", size: "100x100"), bookmark.url, title: bookmark.url  %>
+
+
+
+  <!-- REVIEW backup if a favicon is not found? -->
+  <%= link_to image_tag("#{bookmark.url}/favicon.ico", size: "100x100"), bookmark.url, title: bookmark.url  %>
+
+
+
+  <!-- <a class="embedly-card" data-card-key= EMBEDLY_API_KEY data-card-chrome="0" data-card-width="50" href = bookmark.url>cracked.com</a> -->
+  <!-- <a class="icon" href=bookmark.url><%= bookmark.url %></a> -->
+  <!-- <a class="icon" href=bookmark.url></a> -->
+
+<!-- <blockquote class="embedly-card" data-card-key="26a9fb768d544a9ca54c83db83eeabd0" data-card-chrome="0" data-card-width="50" data-card-type="article" data-card-align="left"><h4><a href= bookmark.url>Cracked.com - America's Only Humor Site | Cracked.com</a></h4><p>A funny website filled with funny videos, pics, articles, and a whole bunch of other funny stuff. Cracked.com, celebrating 50 years of humor.</p></blockquote> -->
+  <!-- <a href= <%= bookmark.url %> class="embedly-card" data-card-width="50" >Test</a> -->
+
+  <%# link_to bookmark.url, class:"embedly-card" %>
+
 
   <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
 
