@@ -5,23 +5,26 @@ class IncomingController < ApplicationController
   def create
     user = User.where(email: params[:sender]).first
 
-    # REVIEW what to do with user that has no login info?
-    if (user.nil?)
-      user = User.create!(email: params[:sender])
+    if user
+      # REVIEW what to do with user that has no login info?
+      # if (user.nil?)
+      #   user = User.create!(email: params[:sender])
+      # end
+
+      topic = Topic.where(title: params[:subject]).first
+
+      if (topic.nil?)
+        topic = Topic.create!(title: params[:subject], user: user)
+        # topic = Topic.create!(title: params[:subject])
+      end
+
+      # bookmark = topic.bookmarks.create!(url: params["body-plain"])
+      # topic.bookmarks.create!(url: params["body-plain"])
+
+      Bookmark.create!(url: params["body-plain"], topic: topic)
+
+      # topic.bookmarks.create!(url: params["body-plain"])
     end
-
-    topic = Topic.where(title: params[:subject]).first
-
-    if (topic.nil?)
-      topic = Topic.create!(title: params[:subject], user: user)
-    end
-
-    # bookmark = topic.bookmarks.create!(url: params["body-plain"])
-    # topic.bookmarks.create!(url: params["body-plain"])
-
-    Bookmark.create!(url: params["body-plain"], topic: topic)
-
-    # topic.bookmarks.create!(url: params["body-plain"])
 
     head 200
   end
