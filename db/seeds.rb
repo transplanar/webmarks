@@ -24,6 +24,11 @@ topic_arr.each do |topic|
   end
 end
 
+# # XXX TESTING EMBEDLY
+# _topic = Topic.create!(title: topic_arr[0].to_s.titleize, user: admin)
+# # _topic.bookmarks.create!(url: "http://cracked.com/")
+# _topic.bookmarks.create!(url: "http://cnn.com/")
+
 
 p "Seed complete"
 p "#{User.count} users created"

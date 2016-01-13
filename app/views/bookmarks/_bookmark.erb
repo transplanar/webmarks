@@ -5,7 +5,9 @@
 
 
   <!-- REVIEW backup if a favicon is not found? -->
-  <%= link_to image_tag("#{bookmark.url}/favicon.ico", size: "100x100"), bookmark.url, title: bookmark.url  %>
+  <%# link_to image_tag("#{bookmark.url}/favicon.ico", size: "100x100"), bookmark.url, title: bookmark.url  %>
+  <!-- TODO fix to allow users to select image -->
+  <%= link_to image_tag("#{bookmark.image_url}", size: "100x100"), bookmark.url, title: bookmark.url  %>
 
 
 
