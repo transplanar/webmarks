@@ -13,6 +13,8 @@ class Bookmark < ActiveRecord::Base
   # TODO also call this on update
   after_create :get_image_url
 
+  # validates :url, :format => URI::regexp(%w(http https))
+
   def get_image_url
     embedly_api = Embedly::API.new :key => '26a9fb768d544a9ca54c83db83eeabd0',
         :user_agent => 'Mozilla/5.0 (compatible; mytestapp/1.0; my@email.com)'
@@ -22,13 +24,15 @@ class Bookmark < ActiveRecord::Base
     # puts "<<<<<<<<<<<<<<<<<<<<<<EMBEDLY STUFF"
     # puts JSON.pretty_generate(obj[0].marshal_dump)
     # embedly_data = JSON.pretty_generate(obj[0].marshal_dump)
-    embedly_data = obj[0].marshal_dump
     # puts "IMAGE URL = " + embedly_data.find(:images).to_s
     # puts "IMAGE URL = "
     # thing = embedly_data[:images].find(:url).to_s
     # puts embedly_data[:images].first["url"]
-    # puts embedly_data[:images]
+    # puts embedly_data
     # :image_url = embedly_data[:images].first["url"]
+
+    #TODO how to validate url
+    embedly_data = obj[0].marshal_dump
     update_attribute(:image_url, embedly_data[:images].first["url"])
   end
 end

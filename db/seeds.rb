@@ -15,19 +15,19 @@ end
   topic_arr.push(Faker::Hipster.word)
 end
 
-topic_arr.each do |topic|
-  # TODO change to be owned by random users
-  _topic = Topic.create!(title: topic.to_s.titleize, user: admin)
+# topic_arr.each do |topic|
+#   # TODO change to be owned by random users
+#   _topic = Topic.create!(title: topic.to_s.titleize, user: admin)
+#
+#   4.times do
+#     _topic.bookmarks.create!(url: "http://cracked.com/")
+#   end
+# end
 
-  4.times do
-    _topic.bookmarks.create!(url: "http://cracked.com/")
-  end
-end
-
-# # XXX TESTING EMBEDLY
-# _topic = Topic.create!(title: topic_arr[0].to_s.titleize, user: admin)
-# # _topic.bookmarks.create!(url: "http://cracked.com/")
-# _topic.bookmarks.create!(url: "http://cnn.com/")
+# XXX TESTING EMBEDLY
+_topic = Topic.create!(title: topic_arr[0].to_s.titleize, user: admin)
+# _topic.bookmarks.create!(url: "http://cracked.com/")
+_topic.bookmarks.create!(url: "http://cnn.com/")
 
 
 p "Seed complete"
