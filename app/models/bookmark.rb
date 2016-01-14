@@ -15,6 +15,10 @@ class Bookmark < ActiveRecord::Base
 
   # validates :url, :format => URI::regexp(%w(http https))
 
+  # validates :image_url, :url => true, @options={:message => "my custom error"}
+  # validates :homepage, :message => "my custom error", :url => true
+  validates :homepage, :url => true
+
   def get_image_url
     embedly_api = Embedly::API.new :key => '26a9fb768d544a9ca54c83db83eeabd0',
         :user_agent => 'Mozilla/5.0 (compatible; mytestapp/1.0; my@email.com)'
