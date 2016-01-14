@@ -50,7 +50,7 @@ gem 'figaro', '1.0'
 gem 'pundit'
 gem 'faker'
 gem 'embedly'
-
+gem 'validate_url'
 
 
 # TODO add figaro and emailer for user confirmation
