@@ -1,10 +1,7 @@
 <h2 class="header-centered">Some Cool Bookmarks</h2>
 
-<!-- TODO align this to right, above list of bookmarks -->
-<!-- ... OR underneath signup/signin -->
 <div id="new_item_button_wrapper">
   <%= link_to 'New Topic', new_topic_path, class: "btn btn-info" %>
 </div>
 
-<!-- TODO render topics in reverse (descending chronological order) -->
 <%= render 'topics/topics' %>

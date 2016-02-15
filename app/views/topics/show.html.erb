@@ -1,19 +1,7 @@
-<!-- REVIEW redundant with flash notice? -->
-<!-- <p id="notice"><%# notice %></p> -->
-
 <h2 class="header-centered">Bookmarks for #<%= @topic.title %> </h2>
-<!-- TODO once user controller created, fix this -->
-<!-- TODO replace this with link to user profile -->
-<!-- <div> owner: <%# @topic.user.email %> -->
 
 <div class="bookmark-item">
-  <!-- <div style:"text-align: center;"> -->
-    <%= render partial: 'bookmarks/bookmarks', locals: {topic: @topic} %>
-  <!-- </div> -->
+  <%= render partial: 'bookmarks/bookmarks', locals: {topic: @topic} %>
 </div>
 
-<!-- <%= link_to 'New Bookmark', new_topic_bookmark_path(@topic), class: "pull-right btn btn-success" %> -->
 <%= link_to 'New Bookmark', new_topic_bookmark_path(@topic), class: "pull-right btn btn-success" %>
-
-<!-- <%# link_to 'Edit', edit_topic_path(@topic) %> | -->
-<!-- <%# link_to 'Back', topics_path %> -->

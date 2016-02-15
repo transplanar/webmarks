@@ -1,6 +1,5 @@
 class BookmarkPolicy < ApplicationPolicy
   def update?
-    # false
     user.present? && (record.topic.user == user)
   end
 
@@ -9,7 +8,6 @@ class BookmarkPolicy < ApplicationPolicy
   end
 
   def destroy?
-    # false
     user.present? && (record.topic.user == user)
   end
 end

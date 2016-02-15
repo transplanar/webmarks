@@ -1,16 +1,13 @@
-<!-- REVIEW is this if statement needed? Causes the page to fail to load -->
-<%# if policy(Like.new).create?  %>
-  <div>
-  <% if current_user.present? %>
-    <% if like = current_user.liked(bookmark) %>
-      <%= link_to bookmark_like_path(bookmark, like), class: 'btn btn-danger', title: "Like", method: :delete do %>
-        <i class="glyphicon glyphicon-star-empty"> </i>
-      <% end %>
-    <% else %>
-      <%= link_to bookmark_likes_path(bookmark), class: 'btn btn-primary',  title: "Unlike", method: :post do %>
-        <i class="glyphicon glyphicon-star"> </i>
-      <% end %>
+<div>
+<% if current_user.present? %>
+  <% if like = current_user.liked(bookmark) %>
+    <%= link_to bookmark_like_path(bookmark, like), class: 'btn btn-danger', title: "Like", method: :delete do %>
+      <i class="glyphicon glyphicon-star-empty"> </i>
+    <% end %>
+  <% else %>
+    <%= link_to bookmark_likes_path(bookmark), class: 'btn btn-primary',  title: "Unlike", method: :post do %>
+      <i class="glyphicon glyphicon-star"> </i>
     <% end %>
   <% end %>
-  </div>
-<%# end %>
+<% end %>
+</div>

@@ -30,7 +30,6 @@ class TopicsController < ApplicationController
     end
   end
 
-  # TODO update redirects
   def update
     authorize @topic
 
