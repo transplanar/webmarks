@@ -1,11 +1,7 @@
-<!-- REVIEW (B) how to pull image from url? how to generate an image? -->
-<!-- TODO additional styling, resizing -->
-
 <% topic.bookmarks.each do |bookmark| %>
   <%= render partial: 'bookmarks/bookmark', locals: {bookmark: bookmark, topic: bookmark.topic} %>
 <% end  %>
 
-<!-- TODO fix this -->
 <%= link_to new_topic_bookmark_path(topic), title: 'New Bookmark', class: "btn-lg btn-success new-bookmark-btn" do %>
   <i class="glyphicon glyphicon-plus"> </i>
 <% end %>

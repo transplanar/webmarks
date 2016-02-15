@@ -2,8 +2,6 @@ class LikesController < ApplicationController
   before_action :set_bookmark, only: [:new, :create, :destroy]
 
   def new
-    # authorize @bookmark
-    # REVIEW use current_user here?
     @like = Like.new(bookmark: @bookmark, user: current_user)
   end
 
@@ -24,7 +22,6 @@ class LikesController < ApplicationController
  def destroy
    authorize @bookmark
 
-  #  FIXME this raises errors when not logged in.
    like = @bookmark.likes.where(user_id: current_user.id).first
 
    if like.destroy

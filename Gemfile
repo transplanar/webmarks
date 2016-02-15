@@ -41,9 +41,6 @@ source 'https://rubygems.org'
  # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
  gem 'turbolinks'
 
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Gems added by GPC
-
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'figaro', '1.0'
@@ -51,6 +48,3 @@ gem 'pundit'
 gem 'faker'
 gem 'embedly'
 gem 'validate_url'
-
-
-# TODO add figaro and emailer for user confirmation

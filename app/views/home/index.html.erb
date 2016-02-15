@@ -1,23 +1,11 @@
-
-<!-- TODO Show your bookmarks first, show other user bookmarks below? -->
-<!-- ... exclude your bookmarks from this bottom list (so no double display) -->
-
-
 <% if current_user.present? %>
   <h2 class="header-centered">Your Bookmarks</h2>
 <% else %>
   <h2 class="header-centered">Some Cool Bookmarks</h2>
 <% end %>
 
-<!-- TODO align this to right, above list of bookmarks -->
-<!-- ... OR underneath signup/signin -->
 <div id="new_item_button_wrapper">
   <%= link_to 'New Topic', new_topic_path, class: "btn btn-info" %>
 </div>
 
-<%# render 'topics' %>
 <%= render 'topics/topics' %>
-
-
-<!-- <blockquote class="embedly-card" data-card-key="26a9fb768d544a9ca54c83db83eeabd0" data-card-chrome="0"><h4><a href="http://cracked.com">Cracked.com - America's Only Humor Site | Cracked.com</a></h4><p>A funny website filled with funny videos, pics, articles, and a whole bunch of other funny stuff. Cracked.com, celebrating 50 years of humor.</p></blockquote> -->
-<!-- <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script> -->
