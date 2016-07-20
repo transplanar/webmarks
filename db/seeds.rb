@@ -1,5 +1,5 @@
-admin = User.create!(email: 'admin@example.com', password: 'password', confirmed_at: Time.now)
-User.create!(email: 'member@example.com', password: 'password', confirmed_at: Time.now)
+admin = User.create!(email: 'admin@webmarks.com', password: 'password', confirmed_at: Time.now)
+User.create!(email: 'member@webmarks.com', password: 'password', confirmed_at: Time.now)
 
 topic_arr = []
 
