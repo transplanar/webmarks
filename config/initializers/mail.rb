@@ -1,3 +1,4 @@
+# NOTE send test emails to postmaster@app87ca224351ca4e7591adbbe43897649b.mailgun.org
 ActionMailer::Base.smtp_settings = {
   port:              587,
   address:           'smtp.mailgun.org',
