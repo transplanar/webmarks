@@ -11,6 +11,8 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+
+    authorize @topic
   end
 
   def edit
@@ -18,6 +20,8 @@ class TopicsController < ApplicationController
   end
 
   def create
+    # authorize @topic
+
     @topic = Topic.new(topic_params)
 
     @topic.user = current_user
